@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> GH-Golden Fork | Restaurant</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar Section -->
+<nav class="navbar">
+    <div class="logo">GH-<span>Golden-Fork</span></div>
+    <!-- ... baki links ... -->
+    <!-- Yeh hain aapke navigation links -->
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Home Section (Hero) -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Authentic Desi Cuisine</h1>
+        <p>Experience the true spices of the East.</p>
+        <a href="#menu" class="main-btn">Explore Menu</a>
+    </div>
+</section>
+
+<!-- ... aapka menu wala section yahan hoga (us mein id="menu" pehle se hai) ... -->
+
+<!-- Contact Section (Isay Menu ke niche aur Body ke end se pehle add karein) -->
+<section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+        <p>📍 Address: tatlay aali, main kamoki road, Punjab</p>
+        <p>📞 Phone: +92 321-4659841</p>
+        <p>✉️ Email: ghulamhussainimtiaz03@gmail.com</p>
+    </div>
+</section>
+       
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Authentic Desi Cuisine</h1>
+            <p>Experience the true spices of the East.</p>
+            <a href="#menu" class="main-btn">Explore Menu</a>
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="main">Main Course</button>
+            <button class="filter-btn" data-filter="street">Street Food</button>
+            <button class="filter-btn" data-filter="dessert">Desserts</button>
+            <button class="filter-btn" data-filter="drinks">Beverages</button>
+            <button class="filter-btn" data-filter="deals">Special Deals</button>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="main">Desi</button>
+    <button class="filter-btn" data-filter="pizza">Pizza</button>
+    <button class="filter-btn" data-filter="burger">Burgers</button>
+    <button class="filter-btn" data-filter="chinese">Chinese</button>
+            
+        </div>
+
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="card" data-cat="main" onclick="openModal('Chicken Biryani', 'Rs. 850', 'Freshly cooked basmati rice with aromatic spices and chicken.', 'https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?auto=format&fit=crop&w=500')">
+                <img width="250" height="400" src="pictures/Chicken Biryani  Recipe.jpg" alt="">
+                <div class="price">Rs. 850</div>
+                <h3>Chicken Biryani</h3>
+                <p>Spicy & Flavorful</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="card" data-cat="street" onclick="openModal('Gol Gappe', 'Rs. 300', '12 crispy pieces with khatta meetha pani.', 'https://images.unsplash.com/photo-1601050638917-3f947a64c76a?auto=format&fit=crop&w=500')">
+                <img width="250" height="400" src="pictures/Gol gappe.jpg" alt="">
+                <div class="price">Rs. 300</div>
+                <h3>Gol Gappe</h3>
+                <p>Street Favorite</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="card" data-cat="dessert" onclick="openModal('Gulab Jamun', 'Rs. 250', 'Hot dumplings in sugar syrup.', 'https://images.unsplash.com/photo-1589119908995-c6837fa14848?auto=format&fit=crop&w=500')">
+                <img width="250" height="400" src="pictures/Gulab jamun  is a  treditional indian Asin  dessert made from  deep  fiend  daugh balls  of  khoya__ (1).jpg" alt="">
+                <div class="price">Rs. 250</div>
+                <h3>Gulab Jamun</h3>
+                <p>Sweet Delight</p>
+            </div>
+        </div>
+        <!-- --- MAIN COURSE ADDITIONS --- -->
+<div class="card" data-cat="main" onclick="openModal('Mutton Karahi', 'Rs. 1800', 'Fresh mutton cooked with ginger, garlic, and green chilies in a traditional wok.', 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=500')">
+    <img width="300" height="300" src="pictures/Quick and Easy Mutton Karahi – 30-Minute Recipe.jpg" alt="">
+    <div class="price">Rs. 1800</div>
+    <h3>Mutton Karahi</h3>
+    <p>Desi Style Wok Mutton</p>
+</div>
+
+<div class="card" data-cat="main" onclick="openModal('Haleem', 'Rs. 550', 'Slow-cooked blend of lentils, wheat, and shredded beef, topped with fried onions.', 'https://images.unsplash.com/photo-1631452180539-96adc7d5971e?auto=format&fit=crop&w=500')">
+    <img width="300"height="300" src="pictures/Haleem Recipe (Hyderabadi-Pakistani Version) (1).jpg" alt="">
+    <div class="price">Rs. 550</div>
+    <h3>Special Shahi Haleem</h3>
+    <p>Rich & Fibrous Stew</p>
+</div>
+
+<!-- --- STREET FOOD ADDITIONS --- -->
+<div class="card" data-cat="street" onclick="openModal('Chicken Tikka', 'Rs. 450', 'Spicy yogurt-marinated chicken leg/breast piece grilled over charcoal.', 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=500')">
+    <img width="300" height="300" src="pictures/Smoky & Juicy Grilled Chicken Tikka Kabab.jpg" alt="">
+    <div class="price">Rs. 450</div>
+    <h3>Chicken Tikka</h3>
+    <p>Charcoal Grilled BBQ</p>
+</div>
+
+<div class="card" data-cat="street" onclick="openModal('Samosa Chaat', 'Rs. 280', 'Crushed potato samosas topped with chickpeas, yogurt, and tamarind chutney.', 'https://images.unsplash.com/photo-1601050638917-3f947a64c76a?auto=format&fit=crop&w=500')">
+    <img width="300" height="300" src="pictures/Samosa Chaat.jpg" alt="">
+    <div class="price">Rs. 280</div>
+    <h3>Samosa Chaat</h3>
+    <p>Tangy & Crunchy</p>
+</div>
+
+<!-- --- BEVERAGES (DRINKS) --- -->
+<div class="card" data-cat="drinks" onclick="openModal('Sweet Lassi', 'Rs. 180', 'Traditional yogurt-based drink topped with a layer of fresh malai.', 'https://images.unsplash.com/photo-1571006682864-740375df4b24?auto=format&fit=crop&w=500')">
+    <img width="300" height="300" src="pictures/JAGOAN303_ Situs Login Game Gacor Jagoan 303 Resmi Deposit 10rb.jpg" alt="">
+    <div class="price">Rs. 180</div>
+    <h3>Meethi Lassi</h3>
+    <p>Refreshing Yogurt Drink</p>
+</div>
+
+<div class="card" data-cat="drinks" onclick="openModal('Karak Chai', 'Rs. 120', 'Strong milk tea brewed with cardamom and ginger.', 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500')">
+    <img width="300" height="300" src="pictures/morning tea ☕.jpg" alt="">
+    <div class="price">Rs. 120</div>
+    <h3>Karak Chai</h3>
+    <p>The Desi Energy Boost</p>
+</div>
+
+<!-- --- DESSERT ADDITIONS --- -->
+<div class="card" data-cat="dessert" onclick="openModal('Kulfi Falooda', 'Rs. 400', 'Traditional saffron kulfi served with vermicelli and rose syrup.', 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500')">
+    <img width="300"src="pictures/Falooda.jpg" alt="">
+    <div class="price">Rs. 400</div>
+    <h3>Kulfi Falooda</h3>
+    <p>Royal Summer Dessert</p>
+</div>
+<!-- --- PIZZA --- -->
+<!-- Pizza Card -->
+<div class="card" data-cat="pizza" onclick="openModal('Special Pizza', 'Rs. 1400', 'Best pizza in Muridke!', 'images/pizza.jpg', 'pizza')">
+    <img width="300"height="300" src="pictures/Delicious Pizza.jpg" alt="">
+    <div class="price">Rs. 1400</div>
+    <h3>Special Pizza</h3>
+    <p>Choose your flavor & size</p>
+</div>
+</div>
+
+<!-- --- BURGERS --- -->
+<!-- Check karein ke aakhir mein 'burger' (comma ke sath) maujood hai -->
+<div class="card" data-cat="burger" onclick="openModal('Special Burger', 'Rs. 550', 'Crispy Burger', 'images/burger.jpg', 'burger')">
+   <img width="300" height="300" src="pictures/download.jpg" alt="">
+    <div class="price">Rs. 550</div>
+    <h3>Special Burger</h3>
+</div>
+
+<!-- --- CHINESE --- -->
+<div class="card" data-cat="chinese" onclick="openModal('Chicken Manchurian', 'Rs. 950', 'Served with egg fried rice and spicy red gravy.', 'images/chinese.jpg')">
+    <img width="300" height="300" src="#diwalikiroshni.jpg" alt="">
+    <div class="price">Rs. 950</div>
+    <h3>Chicken Manchurian</h3>
+    <p>Served with Fried Rice</p>
+</div>
+
+<div class="card" data-cat="chinese" onclick="openModal('Chicken Chowmein', 'Rs. 750', 'Stir-fried noodles with chicken and vegetables.', 'images/chowmein.jpg')">
+    <img width="300" height="300" src="Sweet Potato Cobbler.jpg" alt="">
+    <div class="price">Rs. 750</div>
+    <h3>Chicken Chowmein</h3>
+    <p>Authentic Chinese Style</p>
+</div>
+<!-- --- SPECIAL DEALS --- -->
+<div class="card deal-card" data-cat="deals" onclick="openModal('Family Feast Pack', 'Rs. 4500', '1kg Mutton Karahi, 2 Chicken Biryanis, 10 Garlic Naans, 1.5L Soft Drink, and 4 Gulab Jamuns.', '')">
+    <div class="badge">SAVE 20%</div>
+    <div class="price">Rs. 4500</div>
+    <h3>Family Feast Pack</h3>
+    <p>Perfect for 4-6 people. Full Desi experience!</p>
+</div>
+
+<div class="card deal-card" data-cat="deals" onclick="openModal('Couple Deal', 'Rs. 1850', '1 Chicken Biryani, 1 Chicken Tikka, 2 Naans, 2 Cold Drinks, and 2 Kheer cups.', 'https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=500')">
+    <div class="badge">POPULAR</div>
+    <div class="price">Rs. 1850</div>
+    <h3>Couple Mini Deal</h3>
+    <p>A complete meal for two.</p>
+</div>
+
+<div class="card deal-card" data-cat="deals" onclick="openModal('Student Combo', 'Rs. 499', '1 Samosa Chaat, 1 Seekh Kebab Roll, and 1 Karak Chai.', 'https://images.unsplash.com/photo-1606491956689-2ea8c5383d81?auto=format&fit=crop&w=500')">
+    <div class="badge">POCKET FRIENDLY</div>
+    <div class="price">Rs. 499</div>
+    <h3>Student Budget Combo</h3>
+    <p>Quick, filling, and tasty.</p>
+</div>
+    </section>
+
+    <!-- Modal Structure -->
+    <!-- Naya aur Behtar Modal Structure -->
+<div id="dishModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-image-container">
+            <img id="modalImg" src="" alt="Dish">
+        </div>
+        <div class="modal-details">
+            <h2 id="modalTitle"></h2>
+            <p id="modalPrice" class="gold-text"></p>
+            
+            <!-- Pizza Options -->
+            <div id="pizzaOptions" style="display:none; margin: 15px 0; text-align: left;">
+                <label>Pizza Flavor:</label>
+                <select id="pizzaFlavor" class="styled-select">
+                    <option value="Chicken Tikka">Chicken Tikka</option>
+                    <option value="Chicken Fajita">Chicken Fajita</option>
+                    <option value="Cheese Lover">Cheese Lover</option>
+                </select>
+                <label style="margin-top:10px; display:block;">Size:</label>
+                <select id="pizzaSize" class="styled-select">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                </select>
+            </div>
+
+            <!-- Burger Options -->
+            <div id="burgerOptions" style="display:none; margin: 15px 0; text-align: left;">
+                <label>Burger Type:</label>
+                <select id="burgerFlavor" class="styled-select">
+                    <option value="Zinger Burger">Zinger Burger</option>
+                    <option value="Chicken Patty">Chicken Patty</option>
+                    <option value="Beef Burger">Beef Burger</option>
+                    <option value="Grilled Chicken">Grilled Chicken</option>
+                </select>
+            </div>
+
+            <p id="modalDesc"></p>
+            <a id="waButton" href="#" target="_blank" class="main-btn">Order on WhatsApp</a>
+        </div>
+    </div>
+</div>
+    <!-- The Pop-up Modal -->
+<div id="dishModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        
+        <!-- Yahan Picture Nazar Aayegi -->
+        <div class="modal-image-container">
+            <img id="modalImg" src="" alt="Dish Image">
+        </div>
+
+        <div class="modal-details">
+            <h2 id="modalTitle"></h2>
+            <p id="modalPrice" class="gold-text"></p>
+            <p id="modalDesc"></p>
+            
+            <!-- WhatsApp Order Button -->
+            <a id="waButton" href="#" target="_blank" class="main-btn">
+                Confirm Order via WhatsApp
+            </a>
+        </div>
+    </div>
+</div>
+
+    <!-- JS Link -->
+    <script src="script.js"></script>
+</body>
+</html>
