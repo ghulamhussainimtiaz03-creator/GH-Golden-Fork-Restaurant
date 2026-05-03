@@ -1,282 +1,33 @@
+/* --- 1. Variables & Reset --- */
 :root {
     --gold: #d4af37;
     --dark: #121212;
     --card-bg: #1e1e1e;
+    --white: #ffffff;
+    --transition: 0.3s ease;
 }
 
 * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
-body { background-color: var(--dark); color: white; scroll-behavior: smooth; }
-
-/* Navbar */
-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 8%; background: rgba(18,18,18,0.9);
-    position: fixed; width: 100%; z-index: 100;
-}
-
-.logo span { color: var(--gold); font-weight: bold; }
-
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 20px; }
-nav ul li a { color: white; text-decoration: none; text-transform: uppercase; font-size: 13px; }
-
-/* Hero */
-.hero {
-    height: 70vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1500&q=80');
-    background-size: cover;
-}
-
-.main-btn {
-    background: var(--gold); color: black; padding: 12px 25px;
-    text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 15px;
-}
-
-/* Menu */
-.menu-section { padding: 80px 8%; text-align: center; }
-.filter-btn {
-    background: none; border: 1px solid var(--gold); color: var(--gold);
-    padding: 7px 20px; border-radius: 20px; cursor: pointer; margin: 5px;
-}
-.filter-btn.active { background: var(--gold); color: black; }
-
-
-    .menu-grid {
-    display: grid;
-    /* Is line se ek line mein 3 barabar ke columns ban jayenge */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 25px; /* Cards ke darmiyan fasla */
-    padding: 20px 0;
-}
-
-/* Mobile aur Tablet ke liye adjustment */
-@media (max-width: 992px) {
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr); /* Tablet par 2 items */
-    }
-}
-
-@media (max-width: 600px) {
-    .menu-grid {
-        grid-template-columns: 1fr; /* Mobile par 1 item (behtar reading ke liye) */
-    }
-}
-
-/* Card ki image ko set karne ke liye */
-.card-thumb {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 12px;
-}
-
-.card {
-    background: var(--card-bg); padding: 20px; border-radius: 10px;
-    border: 1px solid #333; cursor: pointer; transition: 0.3s;
-}
-.card:hover { border-color: var(--gold); transform: translateY(-5px); }
-.price { color: var(--gold); font-weight: bold; }
-
-/* Modal */
-.modal {
-    display: none; position: fixed; z-index: 200;
-    left: 0; top: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
-}
-.modal-content {
-    background-color: #1a1a1a;
-    margin: 5% auto; /* Screen ke darmiyan behtar fit hoga */
-    padding: 15px;   /* Padding kam kar di */
-    border: 1px solid var(--gold);
-    width: 85%;      /* Width thodi kam ki */
-    max-width: 400px; /* Max width 500 se 400 kar di */
-    border-radius: 12px;
-    max-height: 85vh; 
-    overflow-y: auto;
-}
-/* Scrollbar ko khoobsurat banane ke liye (Optional) */
-.modal-content::-webkit-scrollbar {
-    width: 5px;
-}
-.modal-content::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 10px;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #121212;
-    color: #fff;
+    background-color: var(--dark);
+    color: var(--white);
+    line-height: 1.6;
 }
 
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.logo span { color: #d4af37; } /* Gold color */
-
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 30px; }
-nav ul li a { text-decoration: none; color: #fff; font-size: 14px; text-transform: uppercase; }
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1500&q=80');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero-content h4 { color: #d4af37; text-transform: uppercase; margin-bottom: 10px; }
-.hero-content h1 { font-size: 60px; margin-bottom: 20px; }
-.hero-content p { font-size: 18px; margin-bottom: 30px; opacity: 0.8; }
-
-.main-btn {
-    padding: 15px 40px;
-    background-color: #d4af37;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.main-btn:hover { background-color: #fff; }
-
-/* Menu Section */
-.menu-preview { padding: 100px 10%; text-align: center; }
-.menu-preview h2 { font-size: 40px; margin-bottom: 50px; }
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: #1e1e1e;
-    padding: 40px;
-    border-radius: 10px;
-    border: 1px solid #333;
-    position: relative;
-    transition: transform 0.3s;
-}
-
-.card:hover { transform: translateY(-10px); border-color: #d4af37; }
-
-.price {
-    color: #d4af37;
-    font-size: 20px;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.card h3 { margin-bottom: 10px; }
-.card p { font-size: 14px; opacity: 0.6; line-height: 1.6; }
-
-/* Deal Card Specifics */
-.deal-card {
-    border: 2px solid var(--gold) !important;
-    position: relative;
-    overflow: hidden;
-}
-
-.badge {
-    position: absolute;
-    top: 10px;
-    right: -30px;
-    background: #ff4d4d;
-    color: white;
-    padding: 5px 40px;
-    font-size: 10px;
-    font-weight: bold;
-    transform: rotate(45deg);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.card-thumb {
-    width: 100%;
-    height: 150px;
-    object-fit: cover; /* Photo stretch nahi hogi */
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-.modal-image-container {
-    width: 100%;
-    height: 150px; /* Height 180 se 150 kar di */
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-#modalTitle {
-    font-size: 20px; /* Heading thodi choti */
-    margin-bottom: 5px;
-}
-
-.gold-text {
-    font-size: 18px;
-    margin: 5px 0;
-}
-
-.styled-select {
-    padding: 8px; /* Select box ko patla kiya */
-    margin-top: 3px;
-    font-size: 14px;
-}
-
-label {
-    font-size: 12px; /* Labels chote kar diye */
-}
-
-#modalDesc {
-    font-size: 14px;
-    margin: 10px 0;
-}
-
-#modalImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Isse picture stretch nahi hogi balki box mein fit hogi */
-    border: 2px solid var(--gold);
-}
-
-.gold-text {
-    color: var(--gold);
-    font-size: 22px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-/* Page ko smooth banane ke liye (Sabse upar add karein) */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Navbar ki height ke mutabiq jagah chorta hai */
-}
-/* Ye code har us image ko theek kar dega jo card mein hai */
-
-/* Navbar layout */
+/* --- 2. Navigation --- */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Logo left, Links right */
+    justify-content: space-between;
     align-items: center;
     padding: 15px 8%;
     background: rgba(18, 18, 18, 0.95);
@@ -284,6 +35,17 @@ html {
     width: 100%;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--gold);
 }
 
 .nav-links {
@@ -292,122 +54,271 @@ html {
 }
 
 .nav-links li {
-    margin-left: 30px;
+    margin-left: 25px;
 }
 
 .nav-links a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
-    transition: 0.3s;
+    text-transform: uppercase;
+    transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: #d4af37; /* Gold color on hover */
+    color: var(--gold);
 }
 
-/* Contact Section Design */
-.contact-section {
-    padding: 100px 8%;
+/* --- 3. Hero Section --- */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    background-color: #1a1a1a;
-    border-top: 1px solid #333;
+    padding-top: 80px;
 }
 
-.contact-info p {
-    margin: 15px 0;
-    font-size: 18px;
-    color: #ccc;
+.hero-content h1 {
+    font-size: clamp(30px, 5vw, 60px);
+    margin-bottom: 15px;
 }
-.logo {
-    font-size: 24px;
+
+.main-btn {
+    padding: 12px 30px;
+    background-color: var(--gold);
+    color: #000;
+    text-decoration: none;
     font-weight: bold;
-    color: white;
-    letter-spacing: 1px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
 }
 
-.logo span {
-    color: #d4af37; /* Gold color for 'Golden-Fork' */
+.main-btn:hover {
+    background-color: var(--white);
+    transform: translateY(-2px);
 }
+
+/* --- 4. Menu Section --- */
+.menu-section {
+    padding: 60px 8%;
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: center;
+}
+
+.card:hover {
+    border-color: var(--gold);
+    transform: translateY(-8px);
+}
+
+.card-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.price {
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* --- 5. Modal Styling --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    margin: 50px auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 15px;
+    border: 1px solid var(--gold);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 30px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#modalImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gold-text {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
 .styled-select {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
     background: #333;
     color: white;
     border: 1px solid var(--gold);
-    border-radius: 5px;
+    border-radius: 8px;
     outline: none;
 }
 
 label {
+    display: block;
     font-size: 14px;
     color: var(--gold);
     font-weight: bold;
-}
-/* Ye code har us image ko theek kar dega jo card mein hai */
-img {
-    max-width: 100% !important;
-    height: auto !important;
+    margin-top: 10px;
 }
 
-/* Ye aapke restaurant ke section ko mobile ke mutabik set karega */
-div {
-    max-width: 100% !important;
-    box-sizing: border-box;
-}
-/* Food Images ko responsive aur ek hi size ka banane ke liye */
-.card-thumb, .card img {
-    width: 100% !important;
-    height: 200px !important; /* Mobile par image ki lambai control karega */
-    object-fit: cover !important; /* Isse picture stretch nahi hogi */
-    display: block;
+/* --- 6. Contact Section --- */
+.contact-section {
+    padding: 80px 8%;
+    text-align: center;
+    background: #000;
 }
 
-/* Card ko screen se bahar jane se rokne ke liye */
-.card {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden; /* Taaki extra image bahar na dikhe */
+.contact-info p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ccc;
 }
 
-/* Sabse niche ye paste karein */
-.card, .deal-card {
-    width: 100% !important;
-    max-width: 320px !important; /* Mobile par width control */
-    margin: 10px auto !important;
-    overflow: hidden !important;
-    display: block !important;
+/* --- 7. Responsive Mobile View --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5%;
+    }
+    
+    .nav-links {
+        display: none; /* Mobile menu ke liye aap toggle baad mein bana sakte hain */
+    }
+    
+    .hero {
+        height: 50vh;
+    }
+
+    .modal-content {
+        margin: 20px auto;
+        width: 95%;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr; /* Mobile par 1 card per row */
+    }
+}
+.contact-section {
+    padding: 60px 8%;
+    background-color: #1a1a1a;
+    border-top: 2px solid var(--gold);
+    text-align: center;
 }
 
-.card img, .card-thumb, #modalImg {
-    width: 100% !important;
-    height: 200px !important; /* Image ko box ke andar rakhne ke liye */
-    object-fit: cover !important;
-    display: block !important;
-}
-/* Modal (Pop-up) Fix */
-.modal-content {
-    width: 90% !important;      /* Mobile par screen ka 90% hissa le */
-    max-width: 450px !important; /* Bari screen par is se zyada na faile */
-    margin: 10% auto !important; /* Upar se thoda niche aur center mein rahe */
-    padding: 15px !important;
-    border-radius: 12px !important;
-    position: relative !important;
-}
-
-/* Modal ke andar ki image ko fit karne ke liye */
-#modalImg {
-    width: 100% !important;
-    height: auto !important;     /* Height ko auto rakhein taaki image ratio kharab na ho */
-    max-height: 250px !important; /* Zyada lambi na ho jaye */
-    object-fit: cover !important;
-    border-radius: 8px !important;
-}
-.modal {
-    overflow-y: auto !important; /* Agar content zyada ho toh scroll ho sake */
-    display: none; /* Default band rahe, JS se khulega */
-    align-items: center;
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #ccc;
+}
+
+.contact-info strong {
+    color: var(--gold);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+.contact-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px dashed var(--gold);
+}
+
+.contact-link:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
 }

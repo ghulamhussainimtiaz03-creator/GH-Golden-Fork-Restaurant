@@ -1,17 +1,14 @@
-// Filter Functionality
-const filterButtons = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.card');
+// --- Filter Functionality ---
+document.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const category = btn.getAttribute('data-filter');
+        const filterValue = button.getAttribute('data-filter');
+        const cards = document.querySelectorAll('.card');
 
         cards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-cat') === category) {
+            if (filterValue === 'all' || card.getAttribute('data-cat') === filterValue) {
                 card.style.display = 'block';
             } else {
                 card.style.display = 'none';
@@ -20,141 +17,43 @@ filterButtons.forEach(btn => {
     });
 });
 
-// Modal Functionality
-function openModal(name, price, desc, imgPath) {
-    // Modal mein text fill karna
+// --- Modal Functionality ---
+function openModal(name, price, img, desc, type) {
+    const modal = document.getElementById('dishModal');
     document.getElementById('modalTitle').innerText = name;
     document.getElementById('modalPrice').innerText = price;
+    document.getElementById('modalImg').src = img;
     document.getElementById('modalDesc').innerText = desc;
+
+    // Reset Options
+    const pizzaOpt = document.getElementById('pizzaOptions');
+    const portionOpt = document.getElementById('burgerOptions');
     
-    // Modal mein Picture set karna
-    document.getElementById('modalImg').src = imgPath;
+    pizzaOpt.style.display = 'none';
+    portionOpt.style.display = 'none';
 
-    // WhatsApp Link update karna
-    let number = "923214659841"; // Apna number yahan likhein
-    let message = "Assalam-o-Alaikum, I want to order: " + name + " (" + price + ")";
-    document.getElementById('waButton').href = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+    // Logic for Options
+    if (type === 'pizza') {
+        pizzaOpt.style.display = 'block';
+    } 
+    else if (type === 'portion' || type === 'main' || type === 'street' || type === 'chinese') {
+        portionOpt.style.display = 'block';
+    }
 
-    // Modal ko show karna
-    document.getElementById('dishModal').style.display = "block";
+    modal.style.display = 'block';
+    
+    // WhatsApp Link (Order with details)
+    const waNumber = "923214659841";
+    const waLink = `https://wa.me/${waNumber}?text=Assalam-o-Alaikum, I want to order: ${name} (${price})`;
+    document.getElementById('waButton').href = waLink;
 }
 
 function closeModal() {
-    document.getElementById('dishModal').style.display = "none";
+    document.getElementById('dishModal').style.display = 'none';
 }
 
-// Close if clicked outside
 window.onclick = function(event) {
-    let modal = document.getElementById('dishModal');
-    if (event.target == modal) closeModal();
-}
-function openModal(name, price, desc, imgPath, type) {
-    document.getElementById('modalTitle').innerText = name;
-    document.getElementById('modalPrice').innerText = price;
-    document.getElementById('modalDesc').innerText = desc;
-    document.getElementById('modalImg').src = imgPath;
-
-    // Agar item Pizza hai toh options dikhao, warna chhupa do
-    const options = document.getElementById('optionsContainer');
-    if (type === 'pizza') {
-        options.style.display = 'block';
-    } else {
-        options.style.display = 'none';
+    if (event.target == document.getElementById('dishModal')) {
+        closeModal();
     }
-
-    // WhatsApp Order Functionality
-    const orderBtn = document.getElementById('waButton');
-    orderBtn.onclick = function() {
-        let flavor = document.getElementById('flavorSelect').value;
-        let size = document.getElementById('sizeSelect').value;
-        
-        let finalMsg = `Assalam-o-Alaikum, I want to order:\n\n*Item:* ${name}`;
-        if (type === 'pizza') {
-            finalMsg += `\n*Flavor:* ${flavor}\n*Size:* ${size}`;
-        }
-        finalMsg += `\n*Price:* ${price}`;
-
-        let number = "9230314659841"; // Apna number yahan likhein
-        orderBtn.href = "https://wa.me/" + number + "?text=" + encodeURIComponent(finalMsg);
-    };
-
-    document.getElementById('dishModal').style.display = "block";
-}
-function openModal(name, price, desc, imgPath, type) {
-    document.getElementById('modalTitle').innerText = name;
-    document.getElementById('modalPrice').innerText = price;
-    document.getElementById('modalDesc').innerText = desc;
-    document.getElementById('modalImg').src = imgPath;
-
-    // Reset all options first
-    document.getElementById('pizzaOptions').style.display = 'none';
-    document.getElementById('burgerOptions').style.display = 'none';
-
-    // Show options based on type
-    if (type === 'pizza') {
-        document.getElementById('pizzaOptions').style.display = 'block';
-    } else if (type === 'burger') {
-        document.getElementById('burgerOptions').style.display = 'block';
-    }
-
-    const orderBtn = document.getElementById('waButton');
-    orderBtn.onclick = function() {
-        let details = "";
-        
-        if (type === 'pizza') {
-            let f = document.getElementById('pizzaFlavor').value;
-            let s = document.getElementById('pizzaSize').value;
-            details = `\n*Flavor:* ${f}\n*Size:* ${s}`;
-        } else if (type === 'burger') {
-            let f = document.getElementById('burgerFlavor').value;
-            details = `\n*Type:* ${f}`;
-        }
-
-        let finalMsg = `Assalam-o-Alaikum, I want to order:\n\n*Item:* ${name}${details}\n*Price:* ${price}`;
-        let number = "923214659841"; 
-        orderBtn.href = "https://wa.me/" + number + "?text=" + encodeURIComponent(finalMsg);
-    };
-
-    document.getElementById('dishModal').style.display = "block";
-}
-function openModal(name, price, desc, imgPath, type) {
-    // Basic details set karna
-    document.getElementById('modalTitle').innerText = name;
-    document.getElementById('modalPrice').innerText = price;
-    document.getElementById('modalDesc').innerText = desc;
-    document.getElementById('modalImg').src = imgPath;
-
-    // Pehle dono containers ko chhupa do (Reset)
-    document.getElementById('pizzaOptions').style.display = 'none';
-    document.getElementById('burgerOptions').style.display = 'none';
-
-    // Check karo ke kaunsa option dikhana hai
-    if (type === 'pizza') {
-        document.getElementById('pizzaOptions').style.display = 'block';
-    } 
-    else if (type === 'burger') {
-        document.getElementById('burgerOptions').style.display = 'block';
-    }
-
-    // WhatsApp Button Logic
-    const orderBtn = document.getElementById('waButton');
-    orderBtn.onclick = function() {
-        let details = "";
-        
-        if (type === 'pizza') {
-            let f = document.getElementById('pizzaFlavor').value;
-            let s = document.getElementById('pizzaSize').value;
-            details = `\n*Flavor:* ${f}\n*Size:* ${s}`;
-        } 
-        else if (type === 'burger') {
-            let f = document.getElementById('burgerFlavor').value;
-            details = `\n*Burger Type:* ${f}`;
-        }
-
-        let finalMsg = `Assalam-o-Alaikum, I want to order:\n\n*Item:* ${name}${details}\n*Price:* ${price}`;
-        let number = "923214659841"; // Apna WhatsApp Number yahan likhein
-        orderBtn.href = "https://wa.me/" + number + "?text=" + encodeURIComponent(finalMsg);
-    };
-
-    document.getElementById('dishModal').style.display = "block";
 }
