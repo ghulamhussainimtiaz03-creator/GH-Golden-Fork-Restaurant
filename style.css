@@ -371,3 +371,19 @@ div {
     max-width: 100% !important;
     overflow: hidden; /* Taaki extra image bahar na dikhe */
 }
+!important
+/* Sabse niche ye paste karein */
+.card, .deal-card {
+    width: 100% !important;
+    max-width: 320px !important; /* Mobile par width control */
+    margin: 10px auto !important;
+    overflow: hidden !important;
+    display: block !important;
+}
+
+.card img, .card-thumb, #modalImg {
+    width: 100% !important;
+    height: 200px !important; /* Image ko box ke andar rakhne ke liye */
+    object-fit: cover !important;
+    display: block !important;
+}
