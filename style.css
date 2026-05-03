@@ -69,8 +69,10 @@ nav ul li a { color: white; text-decoration: none; text-transform: uppercase; fo
 /* Card ki image ko set karne ke liye */
 .card-thumb {
     width: 100%;
-    height: 250px;         /* Saari photos ek hi lambai ki hongi */
-    object-fit: cover;     /* Photo kharab nahi hogi */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
 }
 
 .card {
@@ -252,11 +254,10 @@ label {
 }
 
 #modalImg {
-    width: 100%;           /* Mobile ke liye */
-    max-width: 320px;      /* Laptop ke liye */
-    margin: 10px auto;     /* Center karne ke liye */
-    overflow: hidden;      /* Kono ko gol rakhne ke liye */
-
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Isse picture stretch nahi hogi balki box mein fit hogi */
+    border: 2px solid var(--gold);
 }
 
 .gold-text {
@@ -270,6 +271,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Navbar ki height ke mutabiq jagah chorta hai */
 }
+/* Ye code har us image ko theek kar dega jo card mein hai */
 
 /* Navbar layout */
 .navbar {
@@ -343,4 +345,29 @@ label {
     font-size: 14px;
     color: var(--gold);
     font-weight: bold;
+}
+/* Ye code har us image ko theek kar dega jo card mein hai */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Ye aapke restaurant ke section ko mobile ke mutabik set karega */
+div {
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+/* Food Images ko responsive aur ek hi size ka banane ke liye */
+.card-thumb, .card img {
+    width: 100% !important;
+    height: 200px !important; /* Mobile par image ki lambai control karega */
+    object-fit: cover !important; /* Isse picture stretch nahi hogi */
+    display: block;
+}
+
+/* Card ko screen se bahar jane se rokne ke liye */
+.card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden; /* Taaki extra image bahar na dikhe */
 }
