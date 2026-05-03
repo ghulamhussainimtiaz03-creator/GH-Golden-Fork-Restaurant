@@ -69,10 +69,8 @@ nav ul li a { color: white; text-decoration: none; text-transform: uppercase; fo
 /* Card ki image ko set karne ke liye */
 .card-thumb {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    height: 250px;         /* Saari photos ek hi lambai ki hongi */
+    object-fit: cover;     /* Photo kharab nahi hogi */
 }
 
 .card {
@@ -254,10 +252,11 @@ label {
 }
 
 #modalImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Isse picture stretch nahi hogi balki box mein fit hogi */
-    border: 2px solid var(--gold);
+    width: 100%;           /* Mobile ke liye */
+    max-width: 320px;      /* Laptop ke liye */
+    margin: 10px auto;     /* Center karne ke liye */
+    overflow: hidden;      /* Kono ko gol rakhne ke liye */
+
 }
 
 .gold-text {
