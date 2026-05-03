@@ -371,7 +371,7 @@ div {
     max-width: 100% !important;
     overflow: hidden; /* Taaki extra image bahar na dikhe */
 }
-!important
+
 /* Sabse niche ye paste karein */
 .card, .deal-card {
     width: 100% !important;
@@ -386,4 +386,28 @@ div {
     height: 200px !important; /* Image ko box ke andar rakhne ke liye */
     object-fit: cover !important;
     display: block !important;
+}
+/* Modal (Pop-up) Fix */
+.modal-content {
+    width: 90% !important;      /* Mobile par screen ka 90% hissa le */
+    max-width: 450px !important; /* Bari screen par is se zyada na faile */
+    margin: 10% auto !important; /* Upar se thoda niche aur center mein rahe */
+    padding: 15px !important;
+    border-radius: 12px !important;
+    position: relative !important;
+}
+
+/* Modal ke andar ki image ko fit karne ke liye */
+#modalImg {
+    width: 100% !important;
+    height: auto !important;     /* Height ko auto rakhein taaki image ratio kharab na ho */
+    max-height: 250px !important; /* Zyada lambi na ho jaye */
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+.modal {
+    overflow-y: auto !important; /* Agar content zyada ho toh scroll ho sake */
+    display: none; /* Default band rahe, JS se khulega */
+    align-items: center;
+    justify-content: center;
 }
