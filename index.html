@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GH-Golden Fork | Restaurant</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Website ka title jo Google par neelay rang mein nazar aata hai -->
+    <title>Golden Fork Restaurant - Digital Menu & Ordering</title>
+
+    <!-- Description jo Google par niche choti lines mein nazar aati hai -->
+    <meta name="description" content="Enjoy the best desi, fast food and desserts at Golden Fork. View our digital menu and order via WhatsApp today!">
+
+    <!-- Google Search Console ke liye keywords -->
+    <meta name="keywords" content="Golden Fork, Restaurant, Gujranwala, Digital Menu, Fast Food, Order Food">
+    
+    <!-- Favicon (Chota icon jo link ke sath nazar aata hai) -->
+    <link rel="icon" type="image/x-icon" href="pictures/logo.png">
 </head>
 <body>
 
@@ -73,9 +84,11 @@
     <div class="card" data-cat="main" onclick="openModal('Mutton Karahi', 'Rs. 1800', 'pictures/Mutton Karahi.jpg', 'Traditional mutton wok.', 'portion')">
         <img src="pictures/Mutton Karahi.jpg" class="card-thumb"><div class="price">Rs. 1800</div><h3>Mutton Karahi</h3>
     </div>
-    <div class="card" data-cat="main" onclick="openModal('Chicken Nihari', 'Rs. 950', 'pictures/nihari.jpg', 'Deep cooked spicy stew.', 'portion')">
-        <img src="pictures/nihari.jpg" class="card-thumb"><div class="price">Rs. 950</div><h3>Special Nihari</h3>
-    </div>
+    <div class="card" data-cat="main" onclick="openModal('Special Nihari', 'Rs. 950', 'pictures/nihari.jpg', 'Deep cooked spicy stew.', 'portion')">
+    <img src="pictures/nihari.jpg" class="card-thumb">
+    <div class="price">Rs. 950</div>
+    <h3>Special Nihari</h3>
+</div>
     <div class="card" data-cat="main" onclick="openModal('Beef Pulao', 'Rs. 800', 'pictures/Beef Pulao.jpg', 'Fragrant beef pulao.', 'portion')">
         <img src="pictures/Beef Pulao.jpg" class="card-thumb"><div class="price">Rs. 800</div><h3>Beef Pulao</h3>
     </div>
@@ -197,7 +210,7 @@
     </div>
     <div class="card" data-cat="dessert" onclick="openModal('Ras Malai', 'Rs. 350', 'pictures/rasmalai.jpg', '2 soft milk pieces.', 'none')">
         <img src="pictures/rasmalai.jpg" class="card-thumb"><div class="price">Rs. 350</div><h3>Ras Malai</h3>
-    </div>
+    </div
     <div class="card" data-cat="dessert" onclick="openModal('Ice Cream', 'Rs. 300', 'pictures/Ice Cream.jpg', '3 scoops of choice.', 'none')">
         <img src="pictures/Ice Cream.jpg" class="card-thumb"><div class="price">Rs. 300</div><h3>Ice Cream</h3>
     </div>
@@ -248,10 +261,25 @@
 
 <!-- Contact Us (Menu ke baad) -->
 <section id="contact" class="contact-section">
-    <h2 class="section-title">Contact Us</h2>
-    <div class="contact-info">
-        <p><strong>📍 Address:</strong> Tatlay Aali, Main Kamoki Road, Gujranwala</p>
-        <p><strong>📞 Phone:</strong> <a href="tel:+923214659841" style="color:var(--gold); text-decoration:none;">0321-4659841</a></p>
+    <div class="contact-container">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <p><strong>📍 Address:</strong>Gulshan-E-Ravi, lahore, punjab</p>
+                
+                <!-- Local Call Button -->
+                <p><strong>📞 Call for Order:</strong> 
+                    <a href="tel:+923084415977" class="contact-link">0308-4</a>
+                </p>
+
+                <!-- WhatsApp Direct Link -->
+                <p><strong>💬 WhatsApp:</strong> 
+                    <a href="https://wa.me/923214659841" target="_blank" class="contact-link">Message on WhatsApp</a>
+                </p>
+                
+                <p><strong>⏰ Timing:</strong> 12:00 PM - 12:00 AM</p>
+            </div>
+        </div>
     </div>
 </section>
 
