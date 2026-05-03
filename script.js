@@ -57,3 +57,7 @@ window.onclick = function(event) {
         closeModal();
     }
 }
+// WhatsApp link update (Modal ke andar)
+const waNumber = "923214659841"; // Without '+' sign
+const waLink = `https://wa.me/${waNumber}?text=Assalam-o-Alaikum, I want to order: ${name} (${price})`;
+document.getElementById('waButton').href = waLink;
